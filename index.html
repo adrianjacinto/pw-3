@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html com backend</title>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th, td {
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #D6EEEE;
+        }
+        </style>
+</head>
+<body>
+    <div>
+<input type="text" id="txtBusca" placeholder="Buscar times">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Estadio</th>
+                <th>Capacidade estadio</th>
+                <th>N° Titulos</th>
+            </tr>
+        </thead>
+        <tbody id="resultado">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <script src="js/jquery.js"></script>
+    <script>             
+$ ('#txtBusca').change (function (){
+let busca = {
+    "busca" : $("#txtBusca"). val ()       
+}
+
+busca = JSON.stringify (busca);
+
+$.post("http://localhost:8080/pw-3/backend/clube/",busca,function(resposta){
+if(resposta.result){
+array.valores.forEeach(clube=>{
+console.log(clube);
+}); 
+}
+$("#resultado").html(
+    `
+    <tr>
+        <td> <td>
+        <td> <td> 
+        <td> <td>
+         <td> <td>
+        <tr>`
+);
+ });
+
+}); 
+
+    </script> 
+</body>
+</html>
